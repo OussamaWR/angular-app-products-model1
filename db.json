@@ -1,0 +1,36 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Computer",
+      "price": 4300,
+      "quantity": 600,
+      "selected": true,
+      "available": true
+    },
+    {
+      "id": 2,
+      "name": "Printer",
+      "price": 4300,
+      "quantity": 600,
+      "selected": true,
+      "available": true
+    },
+    {
+      "name": "chofan",
+      "price": "15",
+      "quantity": "1000",
+      "selected": true,
+      "available": true,
+      "id": 3
+    },
+    {
+      "name": "test",
+      "price": "741",
+      "quantity": "15",
+      "selected": true,
+      "available": true,
+      "id": 4
+    }
+  ]
+}
