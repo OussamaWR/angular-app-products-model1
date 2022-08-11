@@ -14,6 +14,7 @@ import { ProductEditComponent } from './components/product-edit/product-edit.com
 import { ProductsNavBarComponent } from './components/product/products-nav-bar/products-nav-bar.component';
 import { ProductsListComponent } from './components/product/products-list/products-list.component';
 import { ProductsItemComponent } from './components/product/products-item/products-item.component';
+import { StatsComponent } from './components/stats/stats.component';
 
 
 
@@ -28,6 +29,7 @@ import { ProductsItemComponent } from './components/product/products-item/produc
     ProductsNavBarComponent,
     ProductsListComponent,
     ProductsItemComponent,
+    StatsComponent,
 
   ],
   imports: [

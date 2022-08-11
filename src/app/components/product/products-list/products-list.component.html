@@ -10,7 +10,7 @@
         <tr>
           <th>ID</th> <th>Name</th><th>price</th><th>Quantity</th><th>Selected</th><th>Available</th>
         </tr>
-        <app-products-item *ngFor="let p of result.data" [product]="p" (eventEmitter)="onActionEvent($event)" style="display: contents">
+        <app-products-item *ngFor="let p of result.data" [product]="p"  style="display: contents">
 
         </app-products-item>
 

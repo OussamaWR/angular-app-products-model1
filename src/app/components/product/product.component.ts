@@ -4,6 +4,7 @@ import {Product} from "../../model/product.model";
 import {catchError, map, Observable, of, startWith} from "rxjs";
 import {ActionEvent, AppDataState, DataStateEnum, ProductActionsType} from "../../state/product.state";
 import {Router} from "@angular/router";
+import { EventDriverService } from 'src/app/state/event.driver.service';
 
 @Component({
   selector: 'app-product',
@@ -21,9 +22,26 @@ export class ProductComponent implements OnInit {
   readonly DataStateEnum=DataStateEnum;
 
 
-  constructor(private productService:ProductsService,private router:Router) { }
+  constructor(private productService:ProductsService,private router:Router,private eventDiverService:EventDriverService ) { }
 
   ngOnInit(): void {
+    //pour ecouter les evenement dans ngOnInit
+    this.eventDiverService.sourceEventSubjectSubjectObservable.subscribe((actionEvent:ActionEvent)=>{
+      // switch (actionEvent.type) {
+      //   case ProductActionsType.NEW_PRODUCT:this.onNewProduct();break;
+      //   case ProductActionsType.GET_ALL:this.onGetAllProducts();break;
+      //   case ProductActionsType.GET_SELECTED_PRODUCTS:this.onGetSelectedProducts();break;
+      //   case ProductActionsType.GET_AVAILABLE_PRODUCTS:this.onGetAvailableProducts();break;
+      //   case ProductActionsType.SEARCH_PRODUCTS:this.onSearch(actionEvent.payload);break;
+      //   case ProductActionsType.EDIT_PRODUCT:this.onEdit(actionEvent.payload);break;
+      //   case ProductActionsType.SELECT_PRODUCT:this.onSelect(actionEvent.payload);break;
+      //   case ProductActionsType.DELETE_PRODUCT:this.onDelete(actionEvent.payload);break;
+
+      // }     ou
+      this.onActionEvent(actionEvent);
+
+
+    })
   }
   //__________ pour gerer le errors
   //.pipe: pour recoit les données et effictuer des operation map(recupere les données )=> return une resultat (Objet) :
@@ -133,7 +151,7 @@ export class ProductComponent implements OnInit {
   }
 
   onActionEvent($event: ActionEvent) {
-    //console.log($event)
+    console.log($event)
   switch ($event.type) {
     case ProductActionsType.NEW_PRODUCT:this.onNewProduct();break;
     case ProductActionsType.GET_ALL:this.onGetAllProducts();break;
